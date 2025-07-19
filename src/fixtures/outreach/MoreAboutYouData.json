@@ -1,0 +1,93 @@
+{
+  "MoreAboutData": {
+    "Are you entitled to Free School Meals?": [
+      "Select",
+      "No",
+      "Yes",
+      "Don't know"
+    ],
+    "HouseHold Income": [
+      "Select",
+      "£0 - £24,999",
+      "£25,000 - £49,999",
+      "£50,000 - £69,999",
+      "£70,000- £74,999",
+      "£75,000+"
+    ],
+    "Do you currently receive pupil premium": ["No", "Yes"],
+    "Are you currently or have you previously been in care?": ["No", "Yes"],
+    "Care from age": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19"
+    ],
+    "Care to age": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19"
+    ],
+    "Duration in care": [
+      "0 - 4 weeks",
+      "5 - 13 weeks",
+      "4 - 12 months",
+      "13 months - 3 years",
+      "4+ years"
+    ],
+    "Are you a young carer": ["No", "Yes"],
+    "More Details": "More Details",
+    "First generation - relationship": "First generation - relationship",
+    "First generation - occupation": "First generation - occupation",
+    "First generation - guardian attended HE": ["No", "Yes"],
+    "First generation - university": "First generation - university",
+    "First generation - level": "First generation - level",
+    "First generation - subject": "First generation - subject",
+    "[Deprecate]Estranged": ["No", "Yes"],
+    "GTRSB": [
+      "Gypsy",
+      "Traveller",
+      "Roma",
+      "Showman",
+      "Boatman",
+      "None of the above"
+    ],
+    "Refugee or Asylum Seeker": [
+      "No",
+      "I have refugee status",
+      "I am an asylum seeker"
+    ],
+    "Military Family": ["No", "Yes"],
+    "Veteran": ["No", "Yes"]
+  }
+}
