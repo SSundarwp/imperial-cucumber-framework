@@ -16,15 +16,15 @@ Then('the page title for Outreach Application should be {string}', async functio
 
 When('the applicant starts a new application', async function () {
   await this.myOutReachApplicationNewPage.clickStartANewApplication();
-  await this.page.waitForTimeout(2000);
 });
 
 When('selects an Unregulated Programme and its availability', async function () {
   await this.myOutReachApplicationNewPage.selectUnregulatedProgramme();
   await this.myOutReachApplicationNewPage.selectUnregulatedProgrammeAvailability();
-  await this.page.waitForTimeout(2000);
 });
 
 When('submits the Programme Selection', async function () {
   await this.myOutReachApplicationNewPage.submitProgrammeSelection();
+  await this.page.waitForLoadState('networkidle');
+  await this.page.waitForTimeout(5000);
 });

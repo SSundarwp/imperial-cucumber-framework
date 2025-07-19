@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1118229100
+              "duration": 1167449399
             }
           },
           {
@@ -22,7 +22,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 111699
+              "duration": 211699
             }
           },
           {
@@ -30,7 +30,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 277600
+              "duration": 234400
             }
           },
           {
@@ -43,7 +43,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2064855000
+              "duration": 2927919699
             }
           },
           {
@@ -56,7 +56,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 234811400
+              "duration": 250475400
             }
           },
           {
@@ -69,7 +69,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 8393619800
+              "duration": 5645638199
             }
           },
           {
@@ -82,7 +82,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 5417400
+              "duration": 6457599
             }
           },
           {
@@ -95,7 +95,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 29401700
+              "duration": 29256199
             }
           },
           {
@@ -108,7 +108,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 25011399
+              "duration": 31907799
             }
           },
           {
@@ -121,7 +121,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 555897899
+              "duration": 2050322899
             }
           },
           {
@@ -134,7 +134,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 202265400
+              "duration": 231535399
             }
           },
           {
@@ -147,7 +147,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 4752892400
+              "duration": 1702372100
             }
           },
           {
@@ -156,11 +156,24 @@
             "line": 25,
             "name": "selects an Unregulated Programme and its availability",
             "match": {
-              "location": "src\\step-definitions\\myOutReachNewApplication.steps.js:22"
+              "location": "src\\step-definitions\\myOutReachNewApplication.steps.js:21"
             },
             "result": {
               "status": "passed",
-              "duration": 3954835699
+              "duration": 2242290399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "submits the Programme Selection",
+            "match": {
+              "location": "src\\step-definitions\\myOutReachNewApplication.steps.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26333061000
             }
           },
           {
@@ -168,185 +181,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 479095600
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@wp",
-            "line": 2
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "submission-of-gss-applications-and-validation-of-wp-score-calculation;\"testcase_002\"---validate-wp-score-calculation-for-\"gss\"-application-with-expected-score-\"320\"",
-        "keyword": "Scenario Outline",
-        "line": 115,
-        "name": "\"TestCase_002\" - Validate WP Score calculation for \"GSS\" application with expected score \"320\"",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 1067917500
-            }
-          },
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 28400
-            }
-          },
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 122499
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 8,
-            "name": "The applicant accesses the \"GSS\" application portal",
-            "match": {
-              "location": "src\\step-definitions\\signInMyImperial.steps.js:8"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1342764800
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 11,
-            "name": "the applicant provides login credentials with email \"gssapplicationuser@gmail.com\" and password \"Password1$\"",
-            "match": {
-              "location": "src\\step-definitions\\signInMyImperial.steps.js:19"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 214394899
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 12,
-            "name": "successfully signs into the system",
-            "match": {
-              "location": "src\\step-definitions\\signInMyImperial.steps.js:24"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3408522499
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 15,
-            "name": "the system should display the page title as \"My Imperial My Imperial\"",
-            "match": {
-              "location": "src\\step-definitions\\signInMyImperial.steps.js:29"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3817999
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 16,
-            "name": "the user should be greeted with the welcome message \"Welcome, gssapplicant!\"",
-            "match": {
-              "location": "src\\step-definitions\\myImperial.steps.js:14"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 21099799
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 19,
-            "name": "the applicant navigates to the Home dashboard",
-            "match": {
-              "location": "src\\step-definitions\\myImperial.steps.js:18"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 33755699
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 20,
-            "name": "initiates the Outreach Application process",
-            "match": {
-              "location": "src\\step-definitions\\myImperial.steps.js:34"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1547932700
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 23,
-            "name": "the page title for Outreach Application should be \"My Outreach Application\"",
-            "match": {
-              "location": "src\\step-definitions\\myOutReachNewApplication.steps.js:11"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 184046699
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 24,
-            "name": "the applicant starts a new application",
-            "match": {
-              "location": "src\\step-definitions\\myOutReachNewApplication.steps.js:17"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2337928199
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 25,
-            "name": "selects an Unregulated Programme and its availability",
-            "match": {
-              "location": "src\\step-definitions\\myOutReachNewApplication.steps.js:22"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3953078699
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 407791299
+              "duration": 423020700
             }
           }
         ],
