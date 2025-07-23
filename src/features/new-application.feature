@@ -1,6 +1,6 @@
 # Feature describes submitting GSS applications and validating the calculated WP score
 @wp
-Feature: Submission of Outreach Applications and Validation of WP Score Calculation
+Feature: Submission of Outreach Application
 # Scenario Outline allows running the same flow for multiple data sets from Examples
 
   Scenario Outline: "<TestcaseNo>" - Validate WP Score calculation for "<applicationType>" application with expected score "<expectedScore>"
@@ -23,11 +23,12 @@ Feature: Submission of Outreach Applications and Validation of WP Score Calculat
     Then the page title for Outreach Application should be "<MyOutreachTitle>"
     And the applicant starts a new application
     When selects an Unregulated Programme and its availability
-    # And submits the Programme Selection
-    # # Capture and store the generated Application ID for later reference
-    # And extracts and stores the generated Application ID
+    And submits the Programme Selection
+    
+    # Capture and store the generated Application ID for later reference
+    And extracts and stores the generated Application ID
     # # Fill Personal Details section with provided data
-    # Then the page title should be "<PersonalDetailsPageTitle>"
+    Then the page title should be "<PersonalDetailsPageTitle>"
     # And the form title should be "<PersonalDetailsFormTitle>"
     # And the applicant provides personal details:
     #   | Title       | <Title>      |

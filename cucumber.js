@@ -2,7 +2,7 @@ module.exports = {
   default: {
     tags: '@wp',
     require: [
-      'support/world.js',
+      'src/support/world.js',
       'src/step-definitions/*.js',
       'src/support/**/*.js',
       'src/step-definitions/**/*.js',
