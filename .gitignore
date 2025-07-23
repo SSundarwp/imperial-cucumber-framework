@@ -1,5 +1,17 @@
-node_modules
-reports
-reports\html-report
-videos
-reports\cucumber-report.json
+# Node modules
+node_modules/
+
+# Cucumber and test output
+reports/
+reports/*
+
+# Playwright video recordings
+videos/
+videos/*
+
+# Screenshots from test failures
+screenshots/
+screenshots/*
+
+# Logs and environment files
+# .env

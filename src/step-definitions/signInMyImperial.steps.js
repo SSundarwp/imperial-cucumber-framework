@@ -10,10 +10,12 @@ Given('The applicant accesses the {string} application portal', async function (
   this.signupOrSignInPage = new SignupOrSignInPage(this.page);
   await this.signInMyImperialPage.goto(process.env.BASE_URL);
   // Example: click relevant tab/button depending on applicationType
-  if(applicationType === 'GSS'){
+  if (applicationType === 'GSS') {
     await this.signInMyImperialPage.clickGssTab();
-    await this.signInMyImperialPage.clickGSSSignInOrRegisterButton();
+    await this.signInMyImperialPage.clickGSSLoginButton();
   }
+  await this.signInMyImperialPage.clickOutReachTab();
+  await this.signInMyImperialPage.clickOutReachLoginButton();
 });
 
 When('the applicant provides login credentials with email {string} and password {string}', async function (email, password) {

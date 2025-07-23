@@ -7,11 +7,12 @@ Before(function () {
   }
 });
 
-Given('the user is on the My Imperial dashboard', async function () {
-  // No need to initialize again here if done in Before hook
-});
+// Given('the user is on the My Imperial dashboard', async function () {
+//   // No need to initialize again here if done in Before hook
+// });
 
 Then('the user should be greeted with the welcome message {string}', async function (expectedWelcomeMessage) {
+  await this.page.waitForLoadState('networkidle');
   await this.myImperialPage.expectWelcomeTitle(expectedWelcomeMessage);
 });
 

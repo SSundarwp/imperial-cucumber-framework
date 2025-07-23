@@ -26,5 +26,4 @@ When('selects an Unregulated Programme and its availability', async function () 
 When('submits the Programme Selection', async function () {
   await this.myOutReachApplicationNewPage.submitProgrammeSelection();
   await this.page.waitForLoadState('networkidle');
-  await this.page.waitForTimeout(5000);
 });

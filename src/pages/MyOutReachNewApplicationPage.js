@@ -1,15 +1,16 @@
 const { expect } = require('@playwright/test');
+const { myOutReachApplicationNewPage: l } = require('../locators/locators');
 const programmeSelectionData = require('../fixtures/outreach/programmesListData.json');
 
 class MyOutReachApplicationNewPage {
   constructor(page) {
     this.page = page;
 
-    this.startANewApplicationButton = page.getByRole('link', { name: 'Start a new application' });
-    this.unRegulatedProgrammeSearchButton = page.locator('[aria-label="Unregulated programme Launch lookup modal"]');
-    this.unRegulatedProgrammeAvailabilitySearchButton = page.locator('[aria-label="Unregulated programme availability Launch lookup modal"]');
-    this.selectButton = page.getByRole('button', { name: 'Select' });
-    this.submitButton = page.getByRole('button', { name: 'Submit' });
+    this.startANewApplicationButton = page.getByRole(l.moanp_startANewApplicationButton.role, { name: l.moanp_startANewApplicationButton.name });
+    this.unRegulatedProgrammeSearchButton = page.locator(l.moanp_unRegulatedProgrammeSearchButton);
+    this.unRegulatedProgrammeAvailabilitySearchButton = page.locator(l.moanp_unRegulatedProgrammeAvailabilitySearchButton);
+    this.selectButton = page.getByRole(l.moanp_selectButton.role, { name: l.moanp_selectButton.name });
+    this.submitButton = page.getByRole(l.moanp_submitButton.role, { name: l.moanp_submitButton.name });
   }
 
   async clickStartANewApplication() {

@@ -1,14 +1,15 @@
 const { expect } = require('@playwright/test');
+const { signupOrSignInPage: l } = require('../locators/locators');
 
 class SignupOrSignInPage {
   constructor(page) {
     this.page = page;
-    this.signupOrSignInPageTitle = 'My Imperial My Imperial';
-    this.emailInput = page.locator('#email');
-    this.passwordInput = page.locator('#password');
-    this.signInButton = page.locator('#next');
-    this.hamburgerButton = page.locator('a.sidebar-toggle[aria-label="Menu"]');
-    this.logoutLink = page.getByRole('link', { name: 'Log out' });
+    this.signupOrSignInPageTitle = l.soip_pageTitle;
+    this.emailInput = page.locator(l.soip_emailInput);
+    this.passwordInput = page.locator(l.soip_passwordInput);
+    this.signInButton = page.locator(l.soip_signInButton);
+    this.hamburgerButton = page.locator(l.soip_hamburgerButton);
+    this.logoutLink = page.getByRole(l.soip_logoutLink.role, { name: l.soip_logoutLink.name });
   }
 
   async getSignupOrSignInPageTitle() {
@@ -40,4 +41,4 @@ class SignupOrSignInPage {
   }
 }
 
-module.exports =  SignupOrSignInPage ;
+module.exports = SignupOrSignInPage;

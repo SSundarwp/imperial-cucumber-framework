@@ -8,7 +8,7 @@ module.exports = {
       'src/step-definitions/**/*.js',
     ],
     paths: ['src/features/*.feature'],
-    format: ['json:reports/cucumber-report.json'],
+    format: ['json:src/reports/cucumber-report.json'],
     parallel: 1,
     timeout: 1200000,
   },

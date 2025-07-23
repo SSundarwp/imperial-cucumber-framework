@@ -1,8 +1,8 @@
 const reporter = require('multiple-cucumber-html-reporter');
 
 reporter.generate({
-  jsonDir: 'reports',
-  reportPath: 'reports/html-report',
+  jsonDir: 'src/reports',
+  reportPath: 'src/reports/html-report',
   openReportInBrowser: true,
   displayReportTime: false,
   pageFooter: '                                 Developed by Subash Sundar',

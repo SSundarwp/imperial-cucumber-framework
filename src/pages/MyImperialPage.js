@@ -1,18 +1,22 @@
 const { expect } = require('@playwright/test');
+const { myImperialPage: l } = require('../locators/locators');
 
 class MyImperialPage {
   constructor(page) {
     this.page = page;
+    this.welcomeTitle = page.locator(l.mip_welcomeTitle);
 
-    this.welcomeTitle = 'div.fs-2.h2';
+    this.homeTab = page.getByRole(l.mip_homeTab.role, { name: l.mip_homeTab.name });
+    this.admissionsTab = page.locator(l.mip_admissionsTab);
+    this.socialTab = page.locator(l.mip_socialTab);
 
-    this.homeTab = page.getByRole('tab', { name: 'Home' });
-    this.admissionsTab = page.locator('#Admissions');
-    this.socialTab = page.locator('#Social');
+    this.homeTabTiles = page.locator(l.mip_homeTabTiles);
+    this.admissionsTabTiles = page.locator(l.mip_admissionsTabTiles);
+    this.socialTabTiles = page.locator(l.mip_socialTabTiles);
 
-    this.homeTabTiles = page.locator('div#nav-home a.stretched-link');
-    this.admissionsTabTiles = page.locator('div#nav-Admissions a.stretched-link');
-    this.socialTabTiles = page.locator('div#nav-Social a.stretched-link');
+    // Aliases for reuse
+    this.adminTab = this.admissionsTab;
+    this.adminTabTiles = this.admissionsTabTiles;
   }
 
   // Validate page title dynamically (use this in BDD)
@@ -22,28 +26,31 @@ class MyImperialPage {
   }
 
   async expectWelcomeTitle(expectedTitle) {
-  const welcomeTitleLocator = this.page.locator(this.welcomeTitle);
-  await expect(welcomeTitleLocator).toBeVisible();
-  await expect(welcomeTitleLocator).toHaveText(expectedTitle);
-  const text = await welcomeTitleLocator.textContent();
-  console.log(`✅ Welcome message validated: "${text?.trim()}"`);
-}
-
+    await expect(this.welcomeTitle).toBeVisible({ timeout: 10000 });
+    const text = await this.welcomeTitle.textContent();
+    const trimmed = text?.trim();
+    expect(trimmed).toBe(expectedTitle);
+    console.log(`✅ Welcome message validated: "${trimmed}"`);
+  }
 
   async clickHomeTab() {
     await expect(this.homeTab).toBeVisible();
     await this.homeTab.click();
+    console.log('🟢 Navigated to Home tab');
   }
 
   async clickAdminTab() {
     await expect(this.adminTab).toBeVisible();
     await this.adminTab.click();
+    console.log('🟢 Navigated to Admin tab');
   }
 
   async clickAdmissionTab() {
     await expect(this.admissionsTab).toBeVisible();
     await this.admissionsTab.click();
+    console.log('🟢 Navigated to Admissions tab');
   }
+
 
   getTileByTitle(title, tabIndex = 1) {
     return this.page.locator(`(//a[.//h5[normalize-space(text())='${title}']])[${tabIndex}]`);
