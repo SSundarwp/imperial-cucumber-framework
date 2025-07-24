@@ -24,6 +24,8 @@ When('the applicant provides login credentials with email {string} and password 
   }
   await this.signupOrSignInPage.enterEmail(email);
   await this.signupOrSignInPage.enterPassword(password);
+  console.log('Email:', email);
+  console.log('Password: ********');
 });
 
 When('successfully signs into the {string} application portal', async function (applicationType) {

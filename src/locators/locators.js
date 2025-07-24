@@ -17,7 +17,7 @@ module.exports = {
     simip_outreachRegisterButton: { role: 'button', name: 'Outreach Register' },
   },
 
-   myOutReachApplicationNewPage: {
+  myOutReachApplicationNewPage: {
     moanp_startANewApplicationButton: { role: 'link', name: 'Start a new application' },
     moanp_unRegulatedProgrammeSearchButton: '[aria-label="Unregulated programme Launch lookup modal"]',
     moanp_unRegulatedProgrammeAvailabilitySearchButton: '[aria-label="Unregulated programme availability Launch lookup modal"]',
@@ -39,8 +39,29 @@ module.exports = {
 
   personalDetailsPage: {
     pdp_pageTitle: 'Outreach',
-    pdp_formTitleLocator: { label: 'Basic Form', selector: 'h2' }, 
+    pdp_formTitleLocator: { label: 'Basic Form', selector: 'h2' },
     pdp_nextButton: '#NextButton',
   },
-  
+
+  addressPage: {
+    ap_pageTitle: 'Outreach',
+    ap_formTitle: 'Address',
+    ap_formTitleLocator: { label: 'Basic Form', selector: 'h2' },
+    ap_addressLine1: '#address1_line1',
+    ap_addressLine2: '#address1_line2',
+    ap_addressLine3: '#address1_line3',
+    ap_city: '#address1_city',
+    ap_countryClearLookup: '[aria-label="Country Clear lookup field"]',
+    ap_countryLookupModal: '[aria-label="Country Launch lookup modal"]',
+    ap_postcode: '#address1_postalcode',
+    ap_nextButton: '#NextButton',
+  },
+
+  educationPage: {
+  ep_pageTitle: 'Outreach',
+  ep_formTitle: 'Qualification',
+  ep_formTitleLocator: { label: 'Basic Form', selector: 'h2' },
+  ep_nextButton: '#NextButton',
+}
+
 };

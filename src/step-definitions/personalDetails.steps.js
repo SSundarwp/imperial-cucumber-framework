@@ -11,6 +11,7 @@ Before(function () {
 Then('the page title should be {string}', async function (expectedTitle) {
   await expect(this.page).toHaveTitle(expectedTitle);
   console.log(`✅ Page title validated: "${expectedTitle}"`);
+  this.attach(`📄 Section: "${expectedTitle}"`);
 });
 
 Then('the form title should be {string}', async function (expectedFormTitle) {
