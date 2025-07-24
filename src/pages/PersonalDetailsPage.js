@@ -4,6 +4,7 @@ const { personalDetailsPage: l } = require('../locators/locators');
 class PersonalDetailsPage {
   constructor(page) {
     this.page = page;
+    this.firstNameInput = this.page.locator(l.p)
     this.nextButton = this.page.locator(l.pdp_nextButton);
   }
 

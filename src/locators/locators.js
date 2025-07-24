@@ -40,6 +40,14 @@ module.exports = {
   personalDetailsPage: {
     pdp_pageTitle: 'Outreach',
     pdp_formTitleLocator: { label: 'Basic Form', selector: 'h2' },
+    pdp_firstNameInput: '#firstname',
+    pdp_lastNameInput: '#lastname',
+    pdp_dateofBirthInput: '#birthdate_datepicker_description',
+    pdp_primaryEmailaddressInput: '#emailaddress1',
+    pdp_mobileNumberInput: '#mobilephone',
+    pdp_genderCodeInput: ['Male', 'Female'],
+    pdp_ethnicityInput: '#ic_ethnicityid_name',
+    pdp_nationalityInput: '#ic_nationalityid_name',
     pdp_nextButton: '#NextButton',
   },
 
@@ -58,10 +66,23 @@ module.exports = {
   },
 
   educationPage: {
-  ep_pageTitle: 'Outreach',
-  ep_formTitle: 'Qualification',
-  ep_formTitleLocator: { label: 'Basic Form', selector: 'h2' },
-  ep_nextButton: '#NextButton',
-}
+    ep_pageTitle: 'Outreach',
+    ep_formTitle: 'Qualification',
+    ep_formTitleLocator: { label: 'Basic Form', selector: 'h2' },
+    ep_nextButton: '#NextButton',
+  },
 
+  teacherDetailsPage: {
+    tdp_addTeacherDetailsButton: { role: 'button', name: 'Add teacher details' },
+    tdp_iframeSelector: 'iframe[title="Create"]',
+
+    tdp_teacherTitleLaunchLookupButton: { role: 'button', name: 'Teacher title Launch lookup' },
+    tdp_checkboxMrRow: { role: 'checkbox', name: 'Select or deselect the row Mr', exact: true },
+    tdp_firstNameInput: { role: 'textbox', name: 'First name' },
+    tdp_lastNameInput: { role: 'textbox', name: 'Last name' },
+    tdp_workEmailAddressInput: { role: 'textbox', name: 'Work email address' },
+    tdp_selectButton: { role: 'button', name: 'Select' },
+    tdp_addTeacherDetailsButtonInsideIframe: { role: 'button', name: 'Add Teacher Details' },
+    tdp_nextButton: '#NextButton',
+  },
 };

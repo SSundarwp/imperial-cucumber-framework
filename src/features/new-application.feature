@@ -1,60 +1,52 @@
 # Feature: Outreach application
 @wp
 Feature: Submission of Outreach Application
-
 # Start scenario
-Scenario Outline: "<TestcaseNo>" - Validate WP Score for "<applicationType>" with "<expectedScore>"
 
+  Scenario Outline: "<TestcaseNo>" - Validate WP Score for "<applicationType>" with "<expectedScore>"
   # Access portal
-  Given The "<applicationType>" applicant accesses the "<applicationType>" application portal
-
+    Given The "<applicationType>" applicant accesses the "<applicationType>" application portal
   # Login step
-  When the applicant provides login credentials with email "<email>" and password "********"
-  And successfully signs into the "<applicationType>" application portal
-
+    When the applicant provides login credentials with email "<email>" and password "********"
+    And successfully signs into the "<applicationType>" application portal
   # Home page
-  Then application portal should display the page title as "<MyImperialTitle>"
-  And the user should be greeted with the welcome message "<WelcomeTitle>"
-
+    Then application portal should display the page title as "<MyImperialTitle>"
+    And the user should be greeted with the welcome message "<WelcomeTitle>"
   # Start application
-  When the applicant navigates to the Home dashboard
-  And initiates the Outreach Application process
-  Then the page title for Outreach Application should be "<MyOutreachTitle>"
-  And the applicant starts a new application
-
+    When the applicant navigates to the Home dashboard
+    And initiates the Outreach Application process
+    Then the page title for Outreach Application should be "<MyOutreachTitle>"
+    And the applicant starts a new application
   # Programme selection
-  When selects an Unregulated Programme and its availability
-  And submits the Programme Selection
-  And extracts and stores the generated Application ID
-
+    When selects an Unregulated Programme and its availability
+    And submits the Programme Selection
+    And extracts and stores the generated Application ID
   # Personal details
-  Then the page title should be "<PersonalDetailsPageTitle>"
-  And the form title should be "<PersonalDetailsFormTitle>"
-  And the applicant provides personal details
-
+    Then the page title should be "<PersonalDetailsPageTitle>"
+    And the form title should be "<PersonalDetailsFormTitle>"
+    And the applicant provides personal details
   # Address details
-  Then the page title should be "<AddressPageTitle>"
-  And the form title should be "<AddressFormTitle>"
-  And the applicant enters address information
-    | AddressLine1 | <AddressLine1> |
-    | AddressLine2 | <AddressLine2> |
-    | AddressLine3 | <AddressLine3> |
-    | City         | <City>         |
-    | Country      | <Country>      |
-    | Postcode     | <Postcode>     |
-
+    Then the page title should be "<AddressPageTitle>"
+    And the form title should be "<AddressFormTitle>"
+    And the applicant provides address information
+      | AddressLine1 | <AddressLine1> |
+      | AddressLine2 | <AddressLine2> |
+      | AddressLine3 | <AddressLine3> |
+      | City         | <City>         |
+      | Country      | <Country>      |
+      | Postcode     | <Postcode>     |
   # Education details
     Then the page title should be "<EducationPageTitle>"
     And the form title should be "<EducationFormTitle>"
     And the applicant enters education qualification "<Qualification>"
-    # # Fill Teacher Details section
-    # Then the page title should be "<TeacherPageTitle>"
-    # And the form title should be "<TeacherFormTitle>"
-    # And the applicant provides teacher details:
-    #   | Title     | <TeacherTitle>     |
-    #   | FirstName | <TeacherFirstName> |
-    #   | LastName  | <TeacherLastName>  |
-    #   | Email     | <TeacherEmail>     |
+  # Teacher details  
+    Then the page title should be "<TeacherPageTitle>"
+    And the form title should be "<TeacherFormTitle>"
+    And the applicant provides teacher details
+      | Title     | <TeacherTitle>     |
+      | FirstName | <TeacherFirstName> |
+      | LastName  | <TeacherLastName>  |
+      | Email     | <TeacherEmail>     |
     # # Fill Guardian Details section
     # Then the page title should be "<GuardianPageTitle>"
     # And the form title should be "<GuardianFormTitle>"
@@ -107,5 +99,5 @@ Scenario Outline: "<TestcaseNo>" - Validate WP Score for "<applicationType>" wit
     # And the calculated WP Score should be "<ExpectedWPScore>"
 
     Examples:
-      | TestcaseNo   | applicationType | applicantType | expectedScore | email                          | password   | MyImperialTitle         | WelcomeTitle                 | MyOutreachTitle         | PersonalDetailsPageTitle | PersonalDetailsFormTitle | Title | FirstName          | LastName           | DateOfBirth | AddressPageTitle | AddressFormTitle | AddressLine1    | AddressLine2 | AddressLine3 | City   | Country        | Postcode | EducationPageTitle | EducationFormTitle | Qualification | TeacherPageTitle | TeacherFormTitle | TeacherTitle | TeacherFirstName | TeacherLastName | TeacherEmail          | GuardianPageTitle | GuardianFormTitle | GuardianTitle | GuardianFirstName | GuardianLastName | GuardianEmail         | FreeSchoolMeals | HouseHoldIncome | PupilPremium | CareFromAge | CareToAge | DurationInCare | YoungCarer | MoreDetails           | FirstGeneration | FirstGenRelationship | FirstGenOccupation | FirstGenGuardian | FirstGenUniversity  | FirstGenLevel | FirstGenSubject | Estranged | GTRSB           | RefugeeOrAsylumSeeker | MilitaryFamily | Veteran | PersonalStatement                         | PersonalStatementPageTitle | PersonalStatementFormTitle | DisabilityPageTitle | DisabilityFormTitle | Disability | MarketingPageTitle | MarketingFormTitle | Marketing | ReviewPageTitle   | ReviewFormTitle | TermsAccepted | ExpectedWPScore |
-      | TestCase_001 | Outreach        | Applicant     |           320 | gssapplicationuser+4@gmail.com | Imperial1$ | My Imperial My Imperial | Welcome, GSSApplicationUser! | My Outreach Application | Outreach                 | Personal Details         | Mr    | GSSApplicationUser | GSSApplicationUser |  01/01/2005 | Outreach         | Address          | 123 High Street | Apt 4B       | Block C      | London | United Kingdom | W1A 1AA  | Education Details  | Qualification Form | A Levels      | Teacher Details  | Teacher Form     | Mr           | Alan             | Smith           | alan.smith@school.com | Guardian Details  | Guardian Form     | Mrs           | Emma              | Johnson          | emma.johnson@mail.com | Yes             | £16,000–£25,000 | Yes          |           7 |        10 |      1–3 years | Yes        | I care for my sibling | Yes             | Mother               | Nurse              | Yes              | University of Leeds | Bachelor's    | Biology         | Yes       | Irish Traveller | No                    | Yes            | Yes     | I am passionate about healthcare careers. | Personal Statement         | Personal Statement Form    | Disability Details  | Disability Form     | No         | Marketing Details  | Marketing Form     | Email     | Review and Submit | Review Form     | Yes           | High            |
+      | TestcaseNo   | applicationType | applicantType | expectedScore | email                          | password   | MyImperialTitle         | WelcomeTitle                 | MyOutreachTitle         | PersonalDetailsPageTitle | PersonalDetailsFormTitle | Title | FirstName          | LastName           | DateOfBirth | AddressPageTitle | AddressFormTitle | AddressLine1    | AddressLine2 | AddressLine3 | City   | Country        | Postcode | EducationPageTitle | EducationFormTitle | Qualification | TeacherPageTitle | TeacherFormTitle | TeacherTitle | TeacherFirstName | TeacherLastName | TeacherEmail                   | GuardianPageTitle | GuardianFormTitle | GuardianTitle | GuardianFirstName | GuardianLastName | GuardianEmail         | FreeSchoolMeals | HouseHoldIncome | PupilPremium | CareFromAge | CareToAge | DurationInCare | YoungCarer | MoreDetails           | FirstGeneration | FirstGenRelationship | FirstGenOccupation | FirstGenGuardian | FirstGenUniversity  | FirstGenLevel | FirstGenSubject | Estranged | GTRSB           | RefugeeOrAsylumSeeker | MilitaryFamily | Veteran | PersonalStatement                         | PersonalStatementPageTitle | PersonalStatementFormTitle | DisabilityPageTitle | DisabilityFormTitle | Disability | MarketingPageTitle | MarketingFormTitle | Marketing | ReviewPageTitle   | ReviewFormTitle | TermsAccepted | ExpectedWPScore |
+      | TestCase_001 | Outreach        | Applicant     |           320 | gssapplicationuser+4@gmail.com | Imperial1$ | My Imperial My Imperial | Welcome, GSSApplicationUser! | My Outreach Application | Outreach                 | Personal Details         | Mr    | GSSApplicationUser | GSSApplicationUser |  01/01/2005 | Outreach         | Address          | 123 High Street | Apt 4B       | Block C      | London | United Kingdom | W1A 1AA  | Outreach           | Qualification      | A Level       | Outreach         | Teacher Details  | Mr           | Alan             | Smith           | s.sundareswaran@imperial.ac.uk | Guardian Details  | Guardian Form     | Mrs           | Emma              | Johnson          | emma.johnson@mail.com | Yes             | £16,000–£25,000 | Yes          |           7 |        10 |      1–3 years | Yes        | I care for my sibling | Yes             | Mother               | Nurse              | Yes              | University of Leeds | Bachelor's    | Biology         | Yes       | Irish Traveller | No                    | Yes            | Yes     | I am passionate about healthcare careers. | Personal Statement         | Personal Statement Form    | Disability Details  | Disability Form     | No         | Marketing Details  | Marketing Form     | Email     | Review and Submit | Review Form     | Yes           | High            |
