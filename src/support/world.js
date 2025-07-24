@@ -19,10 +19,13 @@ class CustomWorld {
     const recordVideo = process.env.RECORD_VIDEO?.trim().toLowerCase() === 'true';
     const baseURL = process.env.BASE_URL || '';
 
-    // Set video options ONLY if RECORD_VIDEO=true
-    const contextOptions = recordVideo
-      ? { recordVideo: { dir: 'src/videos/', size: { width: 1280, height: 720 } } }
-      : {};
+    const contextOptions = {
+      viewport: { width: 1500, height: 800 },
+      ...(recordVideo
+        ? { recordVideo: { dir: 'src/videos/', size: { width: 1500, height: 800 } } }
+        : {}
+      )
+    };
 
     this.browser = await chromium.launch({ headless, slowMo });
     this.context = await this.browser.newContext(contextOptions);

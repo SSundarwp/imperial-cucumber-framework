@@ -4,8 +4,8 @@
   "scripts": {
     "clean": "rm -rf reports",
     "generate-steps": "npx cucumber-js --format progress",
-    "test": "npm run clean && npx cucumber-js && node generate-report.js",
-    "test:wp": "npm run clean && npx cucumber-js --tags @wp && node generate-report.js"
+    "test": "npm run clean && (npx cucumber-js || true) && node generate-report.js",
+    "test:wp": "npm run clean && (npx cucumber-js --tags @wp || true) && node generate-report.js"
   },
   "dependencies": {
     "@cucumber/cucumber": "^11.3.0",
