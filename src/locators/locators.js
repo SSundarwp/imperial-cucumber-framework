@@ -36,5 +36,11 @@ module.exports = {
     mip_admissionsTabTiles: 'div#nav-Admissions a.stretched-link',
     mip_socialTabTiles: 'div#nav-Social a.stretched-link',
   },
+
+  personalDetailsPage: {
+    pdp_pageTitle: 'Outreach',
+    pdp_formTitleLocator: { label: 'Basic Form', selector: 'h2' }, 
+    pdp_nextButton: '#NextButton',
+  },
   
 };
