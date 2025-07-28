@@ -11,5 +11,4 @@ When('the applicant provides teacher details', async function (dataTable) {
   await teacherDetailsPage.clickCreateAddTeacherDetailsButton();
   await teacherDetailsPage.clickNextButton();
   await this.page.waitForLoadState('networkidle');
-  await this.page.waitForTimeout(2000);
 });

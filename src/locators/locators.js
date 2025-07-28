@@ -85,4 +85,70 @@ module.exports = {
     tdp_addTeacherDetailsButtonInsideIframe: { role: 'button', name: 'Add Teacher Details' },
     tdp_nextButton: '#NextButton',
   },
+
+  guardianDetailsPage: {
+    gdp_addGuardianDetailsButton: { role: 'button', name: 'Add guardian details' },
+    gdp_iframeSelector: 'iframe[title="Create"]',
+
+    gdp_guardianTitleLaunchLookupButton: { role: 'button', name: 'Guardian title Launch lookup' },
+    gdp_checkboxMrRow: { role: 'checkbox', name: 'Select or deselect the row Mr', exact: true },
+
+    gdp_firstInitialInput: { role: 'textbox', name: 'Guardian first initial' },
+    gdp_lastNameInput: { role: 'textbox', name: 'Guardian last name' },
+    gdp_workEmailAddressInput: { role: 'textbox', name: 'Guardian email address' },
+    gdp_phoneNumberInput: { role: 'textbox', name: 'Guardian phone number' },
+
+    gdp_guardianSameAddressButton: { role: 'radio', name: 'Yes' }, // Assuming it's a radio button with "Yes" label
+
+    gdp_selectButton: { role: 'button', name: 'Select' },
+    gdp_addGuardianDetailsButtonInsideIframe: { role: 'button', name: 'Add Guardian Details' },
+    gdp_nextButton: '#NextButton',
+  },
+
+  moreAboutYouPage : {
+    ma_freeSchoolMealsSelect: { selector: '#ic_freeschoolmealscode' },
+    ma_householdIncomeSelect: { selector: '#ic_householdincomecode' },
+
+    ma_pupilPremiumYesRadio: { role: 'radio', name: 'Yes', exact: false, id: '#ic_pupilpremium_1' },
+    ma_pupilPremiumNoRadio: { role: 'radio', name: 'No', exact: false, id: '#ic_pupilpremium_0' },
+
+    ma_outreachInCareYesRadio: { role: 'radio', name: 'Yes', exact: false, id: '#ic_outreachincare_1' },
+    ma_outreachInCareNoRadio: { role: 'radio', name: 'No', exact: false, id: '#ic_outreachincare_0' },
+
+    ma_careFromAgeSelect: { selector: '#ic_carefromagecode' },
+    ma_careToAgeSelect: { selector: '#ic_caretoagecode' },
+    ma_durationInCareSelect: { selector: '#ic_durationincarecode' },
+
+    ma_youngCarerYesRadio: { role: 'radio', name: 'Yes', exact: false, id: '#ic_youngcarer_1' },
+    ma_youngCarerNoRadio: { role: 'radio', name: 'No', exact: false, id: '#ic_youngcarer_0' },
+
+    ma_moreDetailsInput: { selector: '#ic_carerdetails' },
+
+    ma_firstGenerationYesRadio: { role: 'radio', name: 'Yes', exact: false, id: '#ic_firstgeneration_1' },
+    ma_firstGenerationNoRadio: { role: 'radio', name: 'No', exact: false, id: '#ic_firstgeneration_0' },
+
+    ma_firstGenerationRelationshipInput: { selector: '#ic_firstgenrelationship' },
+    ma_firstGenerationOccupationInput: { selector: '#ic_firstgenoccupation' },
+
+    ma_firstGenerationGuardianYesRadio: { role: 'radio', name: 'Yes', exact: false, id: '#ic_firstgenguardian_1' },
+    ma_firstGenerationGuardianNoRadio: { role: 'radio', name: 'No', exact: false, id: '#ic_firstgenguardian_0' },
+
+    ma_firstGenerationUniversityInput: { selector: '#ic_firstgenuni' },
+    ma_firstGenerationLevelInput: { selector: '#ic_firstgenlevel' },
+    ma_firstGenerationSubjectInput: { selector: '#ic_firstgensubject' },
+
+    ma_outreachEstrangedYesRadio: { role: 'radio', name: 'Yes', exact: false, id: '#ic_outreachestranged_1' },
+    ma_outreachEstrangedNoRadio: { role: 'radio', name: 'No', exact: false, id: '#ic_outreachestranged_0' },
+
+    ma_gTRSBSelect: { selector: '#ic_gtrsbcode' },
+    ma_refugeeOrAsylumSeekerSelect: { selector: '#ic_refugeeasylumcode' },
+
+    ma_militaryFamilyYesRadio: { role: 'radio', name: 'Yes', exact: false, id: '#ic_militaryfamily_1' },
+    ma_militaryFamilyNoRadio: { role: 'radio', name: 'No', exact: false, id: '#ic_militaryfamily_0' },
+
+    ma_veteranYesRadio: { role: 'radio', name: 'Yes', exact: false, id: '#ic_veteran_1' },
+    ma_veteranNoRadio: { role: 'radio', name: 'No', exact: false, id: '#ic_veteran_0' },
+
+    ma_nextButton: '#NextButton',
+  }
 };

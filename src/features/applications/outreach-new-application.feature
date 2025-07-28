@@ -16,8 +16,8 @@ Feature: Applicant - Submission of Outreach Application with existing login deta
   This ensures reliable scoring logic, data handling, and form flows for a variety of Outreach cases.
 
   Tagged with @wp for test grouping and CI filtering.
-
   # Start scenario
+
   Scenario Outline: "<TestcaseNo>" - Validate WP Score for "<applicationType>" with "<expectedScore>"
   # Access portal
     Given The "<applicationType>" applicant accesses the "<applicationType>" application portal
@@ -62,37 +62,38 @@ Feature: Applicant - Submission of Outreach Application with existing login deta
       | FirstName | <TeacherFirstName> |
       | LastName  | <TeacherLastName>  |
       | Email     | <TeacherEmail>     |
-    # # Fill Guardian Details section
-    # Then the page title should be "<GuardianPageTitle>"
-    # And the form title should be "<GuardianFormTitle>"
-    # And the applicant provides guardian details:
-    #   | Title     | <GuardianTitle>     |
-    #   | FirstName | <GuardianFirstName> |
-    #   | LastName  | <GuardianLastName>  |
-    #   | Email     | <GuardianEmail>     |
-    # # Fill "More About You" section with detailed background info
-    # And the applicant provides additional background information:
-    #   | FreeSchoolMeals       | <FreeSchoolMeals>       |
-    #   | HouseHoldIncome       | <HouseHoldIncome>       |
-    #   | PupilPremium          | <PupilPremium>          |
-    #   | CareFromAge           | <CareFromAge>           |
-    #   | CareToAge             | <CareToAge>             |
-    #   | DurationInCare        | <DurationInCare>        |
-    #   | YoungCarer            | <YoungCarer>            |
-    #   | MoreDetails           | <MoreDetails>           |
-    #   | FirstGeneration       | <FirstGeneration>       |
-    #   | FirstGenRelationship  | <FirstGenRelationship>  |
-    #   | FirstGenOccupation    | <FirstGenOccupation>    |
-    #   | FirstGenGuardian      | <FirstGenGuardian>      |
-    #   | FirstGenUniversity    | <FirstGenUniversity>    |
-    #   | FirstGenLevel         | <FirstGenLevel>         |
-    #   | FirstGenSubject       | <FirstGenSubject>       |
-    #   | Estranged             | <Estranged>             |
-    #   | GTRSB                 | <GTRSB>                 |
-    #   | RefugeeOrAsylumSeeker | <RefugeeOrAsylumSeeker> |
-    #   | MilitaryFamily        | <MilitaryFamily>        |
-    #   | Veteran               | <Veteran>               |
-    # # Fill Personal Statement section
+    # Fill Guardian Details section
+    Then the page title should be "<GuardianPageTitle>"
+    And the form title should be "<GuardianFormTitle>"
+    And the applicant provides guardian details
+      | Title     | <GuardianTitle>     |
+      | FirstName | <GuardianFirstName> |
+      | LastName  | <GuardianLastName>  |
+      | Email     | <GuardianEmail>     |
+    # Fill "More About You" section with detailed background info
+    And the applicant provides more about you information
+      | FreeSchoolMeals       | <FreeSchoolMeals>       |
+      | HouseHoldIncome       | <HouseHoldIncome>       |
+      | PupilPremium          | <PupilPremium>          |
+      | OutreachInCare        | <OutreachInCare>        |
+      | CareFromAge           | <CareFromAge>           |
+      | CareToAge             | <CareToAge>             |
+      | DurationInCare        | <DurationInCare>        |
+      | YoungCarer            | <YoungCarer>            |
+      | MoreDetails           | <MoreDetails>           |
+      | FirstGeneration       | <FirstGeneration>       |
+      | FirstGenRelationship  | <FirstGenRelationship>  |
+      | FirstGenOccupation    | <FirstGenOccupation>    |
+      | FirstGenGuardian      | <FirstGenGuardian>      |
+      | FirstGenUniversity    | <FirstGenUniversity>    |
+      | FirstGenLevel         | <FirstGenLevel>         |
+      | FirstGenSubject       | <FirstGenSubject>       |
+      | Estranged             | <Estranged>             |
+      | GTRSB                 | <GTRSB>                 |
+      | RefugeeOrAsylumSeeker | <RefugeeOrAsylumSeeker> |
+      | MilitaryFamily        | <MilitaryFamily>        |
+      | Veteran               | <Veteran>               |
+    # Fill Personal Statement section
     # Then the page title should be "<PersonalStatementPageTitle>"
     # And the form title should be "<PersonalStatementFormTitle>"
     # And the applicant enters a personal statement "<PersonalStatement>"
@@ -114,6 +115,5 @@ Feature: Applicant - Submission of Outreach Application with existing login deta
     # And the calculated WP Score should be "<ExpectedWPScore>"
 
     Examples:
-      | TestcaseNo   | applicationType | applicantType | expectedScore | email                          | password   | MyImperialTitle         | WelcomeTitle                 | MyOutreachTitle         | PersonalDetailsPageTitle | PersonalDetailsFormTitle | Title | FirstName          | LastName           | DateOfBirth | AddressPageTitle | AddressFormTitle | AddressLine1    | AddressLine2 | AddressLine3 | City   | Country        | Postcode | EducationPageTitle | EducationFormTitle | Qualification | TeacherPageTitle | TeacherFormTitle | TeacherTitle | TeacherFirstName | TeacherLastName | TeacherEmail                   | GuardianPageTitle | GuardianFormTitle | GuardianTitle | GuardianFirstName | GuardianLastName | GuardianEmail         | FreeSchoolMeals | HouseHoldIncome | PupilPremium | CareFromAge | CareToAge | DurationInCare | YoungCarer | MoreDetails           | FirstGeneration | FirstGenRelationship | FirstGenOccupation | FirstGenGuardian | FirstGenUniversity  | FirstGenLevel | FirstGenSubject | Estranged | GTRSB           | RefugeeOrAsylumSeeker | MilitaryFamily | Veteran | PersonalStatement                         | PersonalStatementPageTitle | PersonalStatementFormTitle | DisabilityPageTitle | DisabilityFormTitle | Disability | MarketingPageTitle | MarketingFormTitle | Marketing | ReviewPageTitle   | ReviewFormTitle | TermsAccepted | ExpectedWPScore |
-      | TestCase_001 | Outreach        | Applicant     |           320 | gssapplicationuser+4@gmail.com | Imperial1$ | My Imperial My Imperial | Welcome, GSSApplicationUser! | My Outreach Application | Outreach                 | Personal Details         | Mr    | GSSApplicationUser | GSSApplicationUser |  01/01/2005 | Outreach         | Address          | 123 High Street | Apt 1B       | Block C      | London | United Kingdom | W1A 1AA  | Outreach           | Qualification      | A Level       | Outreach         | Teacher Details  | Mr           | Alan             | Smith           | s.sundareswaran@imperial.ac.uk | Guardian Details  | Guardian Form     | Mrs           | Emma              | Johnson          | emma.johnson@mail.com | Yes             | £16,000–£25,000 | Yes          |           7 |        10 |      1–3 years | Yes        | I care for my sibling | Yes             | Mother               | Nurse              | Yes              | University of Leeds | Bachelor's    | Biology         | Yes       | Irish Traveller | No                    | Yes            | Yes     | I am passionate about healthcare careers. | Personal Statement         | Personal Statement Form    | Disability Details  | Disability Form     | No         | Marketing Details  | Marketing Form     | Email     | Review and Submit | Review Form     | Yes           | High            |
-      # | TestCase_001 | Outreach        | Applicant     |           110 | gssapplicationuser+4@gmail.com | Imperial1$ | My Imperial My Imperial | Welcome, GSSApplicationUser! | My Outreach Application | Outreach                 | Personal Details         | Mr    | GSSApplicationUser | GSSApplicationUser |  01/01/2005 | Outreach         | Address          | 243 High Street | Apt 2B       | Block C      | London | United Kingdom | TW20 8EF | Outreach           | Qualification      | A Level       | Outreach         | Teacher Details  | Mr           | Alan             | Smith           | s.sundareswaran@imperial.ac.uk | Guardian Details  | Guardian Form     | Mrs           | Emma              | Johnson          | emma.johnson@mail.com | Yes             | £16,000–£25,000 | Yes          |           7 |        10 |      1–3 years | Yes        | I care for my sibling | Yes             | Mother               | Nurse              | Yes              | University of Leeds | Bachelor's    | Biology         | Yes       | Irish Traveller | No                    | Yes            | Yes     | I am passionate about healthcare careers. | Personal Statement         | Personal Statement Form    | Disability Details  | Disability Form     | No         | Marketing Details  | Marketing Form     | Email     | Review and Submit | Review Form     | Yes           | High            |
+      | TestcaseNo   | applicationType | applicantType | expectedScore | email                          | password   | MyImperialTitle         | WelcomeTitle                 | MyOutreachTitle         | PersonalDetailsPageTitle | PersonalDetailsFormTitle | Title | FirstName          | LastName           | DateOfBirth | AddressPageTitle | AddressFormTitle | AddressLine1    | AddressLine2 | AddressLine3 | City   | Country        | Postcode | EducationPageTitle | EducationFormTitle | Qualification | TeacherPageTitle | TeacherFormTitle | TeacherTitle | TeacherFirstName | TeacherLastName | TeacherEmail                   | GuardianPageTitle | GuardianFormTitle | GuardianTitle | GuardianFirstName | GuardianLastName | GuardianEmail                  | FreeSchoolMeals | HouseHoldIncome | PupilPremium | OutreachInCare | CareFromAge | CareToAge | DurationInCare | YoungCarer | MoreDetails           | FirstGeneration | FirstGenRelationship | FirstGenOccupation | FirstGenGuardian | FirstGenUniversity  | FirstGenLevel | FirstGenSubject | Estranged | GTRSB | RefugeeOrAsylumSeeker | MilitaryFamily | Veteran | PersonalStatement                         | PersonalStatementPageTitle | PersonalStatementFormTitle | DisabilityPageTitle | DisabilityFormTitle | Disability | MarketingPageTitle | MarketingFormTitle | Marketing | ReviewPageTitle   | ReviewFormTitle | TermsAccepted | ExpectedWPScore |
+      | TestCase_001 | Outreach        | Applicant     |           320 | gssapplicationuser+4@gmail.com | Imperial1$ | My Imperial My Imperial | Welcome, GSSApplicationUser! | My Outreach Application | Outreach                 | Personal Details         | Mr    | GSSApplicationUser | GSSApplicationUser |  01/01/2005 | Outreach         | Address          | 123 High Street | Apt 1B       | Block C      | London | United Kingdom | W1A 1AA  | Outreach           | Qualification      | A Level       | Outreach         | Teacher Details  | Mr           | Alan             | Smith           | s.sundareswaran@imperial.ac.uk | Outreach          | Guardian Details  | Mr            | Guardian          | Johnson          | s.sundareswaran@imperial.ac.uk | Yes             | £0 - £24,999    | Yes          | Yes            |           7 |        10 |    0 - 4 weeks | Yes        | I care for my sibling | Yes             | Mother               | Nurse              | Yes              | University of Leeds | Bachelor's    | Biology         | Yes       | Gypsy | I have refugee status | Yes            | Yes     | I am passionate about healthcare careers. | Personal Statement         | Personal Statement Form    | Disability Details  | Disability Form     | No         | Marketing Details  | Marketing Form     | Email     | Review and Submit | Review Form     | Yes           | High            |
