@@ -1,29 +1,33 @@
 const { expect } = require('@playwright/test');
+const { myOutReachApplicationPage: l } = require('../locators/locators');
 
 class MyOutReachApplicationPage {
   constructor(page) {
     this.page = page;
-    this.myOutReachDetailsPageTitle = 'Outreach';
-    this.myOutReachDetailsFormTitle = 'My Outreach Application';
-    this.message = this.page.locator('#MessageLabel');
+    this.message = this.page.locator(l.mop_confirmationMessage);
+    this.myOutreachLink = this.page.locator(l.mop_myOutreachLink);
+    this.applicationNumber = this.page.locator(l.mop_applicationNumber);
   }
 
-  async getMyOutReachDetailsPageTitle() {
-    await expect(this.page).toHaveTitle(this.myOutReachDetailsPageTitle);
-    console.log(`✅ Page title validated: "${this.myOutReachDetailsPageTitle}"`);
-  }
-
-  async getMyOutReachDetailsFormTitle() {
-    await expect(this.page.getByLabel('Basic Form').locator('h2')).toContainText(this.myOutReachDetailsFormTitle);
-    console.log(`✅ Form title validated: "${this.myOutReachDetailsFormTitle}"`);
+  async clickMyOutreachLink() {
+    await expect(this.myOutreachLink).toBeVisible();
+    await this.myOutreachLink.click();
+    console.log('✅ Clicked on My Outreach Application link');
   }
 
   async verifySubmission() {
     await expect(this.message).toHaveText(
       'Thank you for Submitting your application! Your Teacher and Parent/Guardian will now be contacted in order to verify their details'
     );
-    console.log('✅ Application submission verified');
+    console.log('✅ Application submitted successfully');
+  }
+
+  async getLastApplicationNumber() {
+    const text = await this.applicationNumber.last().textContent();
+    const match = text.match(/Application Number:\s*(APP\d+)/);
+    if (!match) throw new Error('Application Number not found on page');
+    return match[1];
   }
 }
 
-module.exports = MyOutReachApplicationPage;
+module.exports = { MyOutReachApplicationPage };

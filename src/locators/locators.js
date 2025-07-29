@@ -168,5 +168,26 @@ module.exports = {
     srp_specialEducationNeedsNo: '#ic_sen_0',
     srp_submitButton: '#InsertButton',
     srp_nextButton: '#NextButton',
-  }
+  },
+
+  marketingPage: {
+    mp_radioAttendOutreachbeforeYes: '#ic_outreachattendedbefore_1',
+    mp_radioAttendOutreachbeforeNo: '#ic_outreachattendedbefore_0',
+    mp_inputAttendedOutreachbeforemoredetail: '#ic_outreachattendedbeforedetails',
+    mp_radioNewsLetterSignupYes: '#ic_newsletter_1',
+    mp_radioNewsLetterSignupNo: '#ic_newsletter_0',
+    mp_nextButton: '#NextButton',
+  },
+
+  reviewandSubmissionPage: {
+    rsp_radioTermsandConditionsYes: '#ic_termsandconditions_1',
+    rsp_radioTermsandConditionsNo: '#ic_termsandconditions_0',
+    rsp_submitButton: '#NextButton',
+  },
+
+  myOutReachApplicationPage: {
+    mop_confirmationMessage: '#MessageLabel',
+    mop_myOutreachLink: 'a[title="My Outreach Application"]',
+    mop_applicationNumber: '.card-imperial div:has-text("Application Number:")',
+  },
 }
