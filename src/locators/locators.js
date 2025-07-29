@@ -105,7 +105,7 @@ module.exports = {
     gdp_nextButton: '#NextButton',
   },
 
-  moreAboutYouPage : {
+  moreAboutYouPage: {
     ma_freeSchoolMealsSelect: { selector: '#ic_freeschoolmealscode' },
     ma_householdIncomeSelect: { selector: '#ic_householdincomecode' },
 
@@ -150,5 +150,11 @@ module.exports = {
     ma_veteranNoRadio: { role: 'radio', name: 'No', exact: false, id: '#ic_veteran_0' },
 
     ma_nextButton: '#NextButton',
+  },
+
+  personalStatementPage: {
+    psp_formTitleLocator: { label: 'Basic Form', selector: 'h2' },
+    psp_inputPersonalStatement: '#ic_outreachpersonalstatement',
+    psp_nextButton: '#NextButton',
   }
 };
