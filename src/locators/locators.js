@@ -156,5 +156,17 @@ module.exports = {
     psp_formTitleLocator: { label: 'Basic Form', selector: 'h2' },
     psp_inputPersonalStatement: '#ic_outreachpersonalstatement',
     psp_nextButton: '#NextButton',
+  },
+
+  supportRequirementsPage: {
+    srp_addSupportRequirementsButton: {
+      role: 'button',
+      name: 'Add your support requirements'
+    },
+    srp_iframeSelector: 'iframe[title="Create"]',
+    srp_specialEducationNeedsYes: '#ic_sen_1',
+    srp_specialEducationNeedsNo: '#ic_sen_0',
+    srp_submitButton: '#InsertButton',
+    srp_nextButton: '#NextButton',
   }
-};
+}
