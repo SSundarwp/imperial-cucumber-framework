@@ -5,50 +5,50 @@ class MoreAboutYouPage {
   constructor(page) {
     this.page = page;
 
-    this.selectFreeSchoolMealsLocator = this.page.locator(l.ma_freeSchoolMealsSelect.selector);
-    this.selectHouseholdIncomeLocator = this.page.locator(l.ma_householdIncomeSelect.selector);
+    this.selectFreeSchoolMealsLocator = this.page.locator(l.map_freeSchoolMealsSelect.selector);
+    this.selectHouseholdIncomeLocator = this.page.locator(l.map_householdIncomeSelect.selector);
 
-    this.radioPupilPremiumYesLocator = this.page.locator(l.ma_pupilPremiumYesRadio.id);
-    this.radioPupilPremiumNoLocator = this.page.locator(l.ma_pupilPremiumNoRadio.id);
+    this.radioPupilPremiumYesLocator = this.page.locator(l.map_pupilPremiumYesRadio.id);
+    this.radioPupilPremiumNoLocator = this.page.locator(l.map_pupilPremiumNoRadio.id);
 
-    this.radioOutreachInCareYesLocator = this.page.locator(l.ma_outreachInCareYesRadio.id);
-    this.radioOutreachInCareNoLocator = this.page.locator(l.ma_outreachInCareNoRadio.id);
+    this.radioOutreachInCareYesLocator = this.page.locator(l.map_outreachInCareYesRadio.id);
+    this.radioOutreachInCareNoLocator = this.page.locator(l.map_outreachInCareNoRadio.id);
 
-    this.selectCareFromAgeLocator = this.page.locator(l.ma_careFromAgeSelect.selector);
-    this.selectCareToAgeLocator = this.page.locator(l.ma_careToAgeSelect.selector);
-    this.selectDurationInCareLocator = this.page.locator(l.ma_durationInCareSelect.selector);
+    this.selectCareFromAgeLocator = this.page.locator(l.map_careFromAgeSelect.selector);
+    this.selectCareToAgeLocator = this.page.locator(l.map_careToAgeSelect.selector);
+    this.selectDurationInCareLocator = this.page.locator(l.map_durationInCareSelect.selector);
 
-    this.radioYoungCarerYesLocator = this.page.locator(l.ma_youngCarerYesRadio.id);
-    this.radioYoungCarerNoLocator = this.page.locator(l.ma_youngCarerNoRadio.id);
+    this.radioYoungCarerYesLocator = this.page.locator(l.map_youngCarerYesRadio.id);
+    this.radioYoungCarerNoLocator = this.page.locator(l.map_youngCarerNoRadio.id);
 
-    this.inputMoreDetailsLocator = this.page.locator(l.ma_moreDetailsInput.selector);
+    this.inputMoreDetailsLocator = this.page.locator(l.map_moreDetailsInput.selector);
 
-    this.radioFirstGenerationYesLocator = this.page.locator(l.ma_firstGenerationYesRadio.id);
-    this.radioFirstGenerationNoLocator = this.page.locator(l.ma_firstGenerationNoRadio.id);
+    this.radioFirstGenerationYesLocator = this.page.locator(l.map_firstGenerationYesRadio.id);
+    this.radioFirstGenerationNoLocator = this.page.locator(l.map_firstGenerationNoRadio.id);
 
-    this.inputFirstGenerationRelationshipLocator = this.page.locator(l.ma_firstGenerationRelationshipInput.selector);
-    this.inputFirstGenerationOccupationLocator = this.page.locator(l.ma_firstGenerationOccupationInput.selector);
+    this.inputFirstGenerationRelationshipLocator = this.page.locator(l.map_firstGenerationRelationshipInput.selector);
+    this.inputFirstGenerationOccupationLocator = this.page.locator(l.map_firstGenerationOccupationInput.selector);
 
-    this.radioFirstGenerationGuardianYesLocator = this.page.locator(l.ma_firstGenerationGuardianYesRadio.id);
-    this.radioFirstGenerationGuardianNoLocator = this.page.locator(l.ma_firstGenerationGuardianNoRadio.id);
+    this.radioFirstGenerationGuardianYesLocator = this.page.locator(l.map_firstGenerationGuardianYesRadio.id);
+    this.radioFirstGenerationGuardianNoLocator = this.page.locator(l.map_firstGenerationGuardianNoRadio.id);
 
-    this.inputFirstGenerationUniversityLocator = this.page.locator(l.ma_firstGenerationUniversityInput.selector);
-    this.inputFirstGenerationLevelLocator = this.page.locator(l.ma_firstGenerationLevelInput.selector);
-    this.inputFirstGenerationSubjectLocator = this.page.locator(l.ma_firstGenerationSubjectInput.selector);
+    this.inputFirstGenerationUniversityLocator = this.page.locator(l.map_firstGenerationUniversityInput.selector);
+    this.inputFirstGenerationLevelLocator = this.page.locator(l.map_firstGenerationLevelInput.selector);
+    this.inputFirstGenerationSubjectLocator = this.page.locator(l.map_firstGenerationSubjectInput.selector);
 
-    this.radioOutreachEstrangedYesLocator = this.page.locator(l.ma_outreachEstrangedYesRadio.id);
-    this.radioOutreachEstrangedNoLocator = this.page.locator(l.ma_outreachEstrangedNoRadio.id);
+    this.radioOutreachEstrangedYesLocator = this.page.locator(l.map_outreachEstrangedYesRadio.id);
+    this.radioOutreachEstrangedNoLocator = this.page.locator(l.map_outreachEstrangedNoRadio.id);
 
-    this.selectGTRSBLocator = this.page.locator(l.ma_gTRSBSelect.selector);
-    this.selectRefugeeOrAsylumSeekerLocator = this.page.locator(l.ma_refugeeOrAsylumSeekerSelect.selector);
+    this.selectGTRSBLocator = this.page.locator(l.map_gTRSBSelect.selector);
+    this.selectRefugeeOrAsylumSeekerLocator = this.page.locator(l.map_refugeeOrAsylumSeekerSelect.selector);
 
-    this.radioMilitaryFamilyYesLocator = this.page.locator(l.ma_militaryFamilyYesRadio.id);
-    this.radioMilitaryFamilyNoLocator = this.page.locator(l.ma_militaryFamilyNoRadio.id);
+    this.radioMilitaryFamilyYesLocator = this.page.locator(l.map_militaryFamilyYesRadio.id);
+    this.radioMilitaryFamilyNoLocator = this.page.locator(l.map_militaryFamilyNoRadio.id);
 
-    this.radioVeteranYesLocator = this.page.locator(l.ma_veteranYesRadio.id);
-    this.radioVeteranNoLocator = this.page.locator(l.ma_veteranNoRadio.id);
+    this.radioVeteranYesLocator = this.page.locator(l.map_veteranYesRadio.id);
+    this.radioVeteranNoLocator = this.page.locator(l.map_veteranNoRadio.id);
 
-    this.nextButtonLocator = this.page.locator(l.ma_nextButton);
+    this.nextButtonLocator = this.page.locator(l.map_nextButton);
   }
 
   async selectFreeSchoolMeals(option) {
