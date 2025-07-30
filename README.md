@@ -2,16 +2,19 @@
 ```
 imperial-cucumber-framework
 ├─ .env
-├─ 2025-07-19_03h30_01.mp4
 ├─ cucumber.js
+├─ dynamics-session.json
 ├─ generate-report.js
 ├─ package-lock.json
 ├─ package.json
 ├─ playwright.config.js
-├─ README.md
+├─ README1.md
 ├─ src
 │  ├─ features
-│  │  ├─ new-application.feature
+│  │  ├─ applications
+│  │  │  └─ outreach-new-application.feature
+│  │  ├─ registration
+│  │  │  └─ outreach-applicant-registration.feature
 │  │  └─ sample.feature
 │  ├─ fixtures
 │  │  └─ outreach
@@ -26,19 +29,42 @@ imperial-cucumber-framework
 │  ├─ locators
 │  │  └─ locators.js
 │  ├─ pages
+│  │  ├─ AddressPage.js
+│  │  ├─ EducationPage.js
+│  │  ├─ GuardianPage.js
 │  │  ├─ HomePage.js
+│  │  ├─ MarketingPage.js
+│  │  ├─ MoreAboutYouPage.js
 │  │  ├─ MyImperialPage.js
+│  │  ├─ MyOutReachApplicationPage.js
 │  │  ├─ MyOutReachNewApplicationPage.js
+│  │  ├─ PersonalDetailsPage.js
+│  │  ├─ PersonalStatementPage.js
+│  │  ├─ ReviewandSubmissionPage.js
 │  │  ├─ SignInMyImperialPage.js
-│  │  └─ SignupOrSignInPage.js
-│  └─ step-definitions
-│     ├─ myImperial.steps.js
-│     ├─ myOutReachNewApplication.steps.js
-│     ├─ sample.steps.js
-│     └─ signInMyImperial.steps.js
-├─ support
-│  └─ world.js
+│  │  ├─ SignupOrSignInPage.js
+│  │  ├─ SupportRequirementsPage.js
+│  │  └─ TeacherDetailsPage.js
+│  ├─ step-definitions
+│  │  ├─ address.steps.js
+│  │  ├─ education.steps.js
+│  │  ├─ guardianDetails.steps.js
+│  │  ├─ marketing.steps.js
+│  │  ├─ moreAboutYou.steps.js
+│  │  ├─ myImperial.steps.js
+│  │  ├─ myOutReachApplication.steps.js
+│  │  ├─ myOutReachNewApplication.steps.js
+│  │  ├─ personalDetails.steps.js
+│  │  ├─ personalStatement.steps.js
+│  │  ├─ reviewandSubmissions.steps.js
+│  │  ├─ sample.steps.js
+│  │  ├─ signInMyImperial.steps.js
+│  │  ├─ supportRequirements.steps.js
+│  │  └─ teacherDetails.steps.js
+│  └─ support
+│     └─ world.js
 └─ tests
+   ├─ dynamics-setup.js
    ├─ global-setup.js
    ├─ global-teardown.js
    └─ hooks
