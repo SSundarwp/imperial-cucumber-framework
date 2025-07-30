@@ -5,13 +5,15 @@
     "clean": "rm -rf reports",
     "generate-steps": "npx cucumber-js --format progress",
     "test": "npm run clean && (npx cucumber-js || true) && node generate-report.js",
-    "test:wp": "npm run clean && (npx cucumber-js --tags @wp || true) && node generate-report.js"
+    "test:wp": "npm run clean && (npx cucumber-js --tags @wp || true) && node generate-report.js",
+    "test:signup": "npm run clean && (npx cucumber-js --tags @signup || true) && node generate-report.js"
   },
   "dependencies": {
     "@cucumber/cucumber": "^11.3.0",
     "@playwright/test": "^1.53.2",
     "cucumber-playwright": "^1.2.1",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "node-fetch": "^2.7.0"
   },
   "devDependencies": {
     "multiple-cucumber-html-reporter": "^3.9.3"

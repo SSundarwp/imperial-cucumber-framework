@@ -1,4 +1,20 @@
 module.exports = {
+
+  userDetailsPage: {
+    udp_emailInput: '#email',
+    udp_sendVerificationCodeButton: '#emailVerificationControl_but_send_code',
+    udp_verificationCodeInput: '#emailVerificationCode',
+    udp_verifyCodeButton: '#emailVerificationControl_but_verify_code',
+    udp_sendNewCodeButton: '#emailVerificationControl_but_send_new_code', 
+    udp_newPasswordInput: '#newPassword',
+    udp_reenterPasswordInput: '#reenterPassword',
+    udp_displayNameInput: '#displayName',
+    udp_givenNameInput: '#givenName',
+    udp_outreachApplicationTypeSelect: '#extension_GSSOApplicantType',
+    udp_surnameInput: '#surname',
+    udp_createButton: '#continue'
+  },
+
   signupOrSignInPage: {
     soip_emailInput: '#email',
     soip_passwordInput: '#password',

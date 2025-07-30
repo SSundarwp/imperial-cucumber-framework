@@ -1,32 +1,49 @@
-Feature: OutReach User Registration – Imperial Portal
+@signup
+Feature: Outreach Registration and Account Setup for all 3 Applicant Types
+This feature facilitates the end-to-end registration and account setup process for prospective Outreach applicants — including Applicants, Teachers, and Guardians — via the My Imperial portal. 
+It ensures a secure, user-friendly onboarding experience through robust email verification, meticulous personal information capture, and dynamic user-specific messaging, thereby empowering users to seamlessly access the Imperial application system.
 
-  As a user of the Imperial Portal
-  I want to register using email verification and personal details
-  So that I can create an account and access relevant features
+| **Holistic Registration and Account Setup Workflow** | **Description**                                                                                                                                                    |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1. Applicant Type Selection                          | Prospective users explicitly identify their applicant category (Applicant, Teacher, Guardian) to tailor the registration process accordingly.                      |
+| 2. Secure Email Verification                         | Users enter a valid email address, request a one-time verification code, and submit the received code to confirm their identity.                                   |
+| 3. Password Establishment                            | Following successful email verification, users create a secure password that complies with portal security standards, ensuring account integrity.                  |
+| 4. Detailed Personal Information Entry               | Users provide all mandatory personal details pertinent to their applicant type, including display name, given name, and surname.                                   |
+| 5. Formal Account Creation                           | Users submit the completed registration form, triggering backend validation and account provisioning workflows.                                                    |
+| 6. Personalized Welcome Messaging                    | Upon successful registration, users are greeted with a customized welcome message featuring their registered given name, enhancing engagement and user experience. |
 
-  Scenario Outline: Successful <UserType> registration
-    Given I am on the My Imperial page
-    And I select OutReach Register
-    When I enter a valid email address
-    And I request a verification code
-    Then I should receive a verification code via email
 
-    When I enter the correct verification code
-    Then I should proceed to set a password
+| **Validation and Quality Assurance Criteria** | **Description**                                                                                                                                                                                                           |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Data Completeness                          | Mandatory fields must be rigorously validated prior to form submission to guarantee data completeness and accuracy.                                                                                                       |
+| 2. Password Security                          | Password input fields remain disabled until the applicant successfully verifies their email to uphold security protocols.                                                                                                 |
+| 3. Verification Code Flow                     | Verification codes must be dispatched promptly and accepted seamlessly to avoid friction in the verification process.                                                                                                     |
+| 4. Personalized Messaging                     | The system dynamically personalizes the welcome message, incorporating the applicant’s given name to foster a sense of individual recognition.                                                                            |
+| 5. Test Artifacts                             | Captured screenshots of each critical registration phase and the welcome confirmation are systematically archived and linked to test reports to ensure traceability, audit readiness, and continuous quality improvement. |
+# Start scenario
 
-    When I enter a valid password
-    And I provide the following personal details:
+  Scenario Outline: "<OutreachApplicantType>" - Successful registration of a new "<OutreachApplicantType>" via the Outreach portal
+    Given selects the "<applicationType>" option
+    Then the page title should be "<UserDetailsPageTitle>"
+    When the user enters a valid email address
+    And the user requests an email verification code
+    Then a verification code should be sent to the generated email
+    Then the password fields should be disabled before verification
+    When the user enters the correct verification code
+    Then user requests to validate the verification code
+    Then the password fields should be enabled after verification
+    And the user should be prompted to create a secure password "*********"
+    And provides the following personal details
       | DisplayName           | <DisplayName>           |
       | GivenName             | <GivenName>             |
       | Surname               | <Surname>               |
       | OutreachApplicantType | <OutreachApplicantType> |
-    And I select "<UserType>" as the OutReach Applicant Type
-    And I click "Create Account"
-    Then my <UserType> account should be created
-    And I should be redirected to the <UserType> dashboard
+    And submits the registration form by clicking Create
+    Then application portal should display the page title as "<MyImperialTitle>"
+    And the user should be greeted with the welcome message "<WelcomeTitle>"
 
-  Examples:
-    | UserType       | DisplayName | GivenName | Surname | OutreachApplicantType |
-    | Applicant      | JohnDoe     | John      | Doe     | International         |
-    | Parent/Guardian| JaneDoe     | Jane      | Doe     | Parent/Guardian       |
-    | Teacher        | MrSmith     | John      | Smith   | Teacher               |
+    Examples:
+      | applicationType | UserDetailsPageTitle | DisplayName                          | GivenName                          | Surname                         | OutreachApplicantType | MyImperialTitle         | WelcomeTitle                                 |
+      | Outreach        | User details         | Outreach Applicant Display Name      | Outreach Applicant Given Name      | Outreach Applicant SurName      | Applicant             | My Imperial My Imperial | Welcome, Outreach Applicant Given Name!      |
+      | Outreach        | User details         | Outreach ParentGuardian Display Name | Outreach ParentGuardian Given Name | Outreach ParentGuardian SurName | Parent/Guardian       | My Imperial My Imperial | Welcome, Outreach ParentGuardian Given Name! |
+      | Outreach        | User details         | Outreach Teacher Display Name        | Outreach Teacher Given Name        | Outreach Teacher SurName        | Teacher               | My Imperial My Imperial | Welcome, Outreach Teacher Given Name!        |

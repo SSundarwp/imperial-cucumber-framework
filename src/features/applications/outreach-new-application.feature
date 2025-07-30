@@ -40,7 +40,7 @@ Each application must meet the following standards:
   # Start scenario
   Scenario Outline: "<TestcaseNo>" - Validate WP Score for "<applicationType>" with "<expectedScore>"
   # Access portal
-    Given The "<applicationType>" applicant accesses the "<applicationType>" application portal
+     Given a "<applicantType>" user accesses the "<applicationType>" application portal
   # Login step
     When the applicant provides login credentials with email "<email>" and password "********"
     And successfully signs into the "<applicationType>" application portal

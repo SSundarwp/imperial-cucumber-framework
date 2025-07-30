@@ -1,6 +1,6 @@
 module.exports = {
   default: {
-    tags: '@wp',
+    tags: '@wp or @signup',
     require: [
       'src/support/world.js',
       'src/step-definitions/*.js',
