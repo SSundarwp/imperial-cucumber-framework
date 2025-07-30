@@ -1,23 +1,43 @@
 # Feature: Outreach application
 @wp
-Feature: Applicant - Submission of Outreach Application with existing login details
-  This feature verifies the complete end-to-end journey of an existing Outreach applicant submitting a new application via the My Imperial portal.
+Feature: Applicant Submission of Outreach Application via Existing Login Credentials
+This feature enables existing Outreach applicants to submit a new application via the My Imperial portal, with backend validation in Microsoft Dynamics CRM to ensure data accuracy and system consistency.
 
-  The scenario covers:
-  1. Logging into the application portal with valid credentials
-  2. Navigating to the Outreach application dashboard
-  3. Initiating and completing a new Outreach application
-  4. Providing personal, address, education, and teacher details
-  5. (Optionally) entering guardian information, personal statement, and background context
-  6. Accepting terms and submitting the application
-  7. Validating submission success and calculating the correct WP (Widening Participation) score
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+End-to-End Application Submission Workflow
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Login                – Applicant logs into the Outreach portal using existing credentials.
+2. Dashboard Access     – Navigates to the Outreach dashboard.
+3. Start Application    – Initiates a new application and selects a programme.
+4. Complete Form        – Fills in all mandatory sections with accurate information.
+5. Accept Terms         – Reviews and accepts the terms and conditions.
+6. Submit Application   – Submits the form and receives a unique application reference number.
 
-  The use of Scenario Outline with example data allows automated validation across multiple applicant types, applcation details and WP score outcomes. 
-  This ensures reliable scoring logic, data handling, and form flows for a variety of Outreach cases.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Application Data Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Applicants must complete the following sections:
+1. Personal Information     – Name, date of birth, gender, nationality, and contact details.
+2. Address Information      – Current and permanent addresses with full location details.
+3. Educational Background   – Institutions, qualifications, subjects, grades, and awarding bodies.
+4. Teacher References       – Referee’s name, title, role, email, and consent confirmation.
+5. Guardian Details         – Guardian’s full name, title, and email.
+6. More About you           – Socio-economic details like income, care status, and free school meal eligibility.
+7. Personal Statement       – Applicant’s written motivation for applying.
+8. Support Requirements     – Disclosure of special educational needs or support needs.
+9. Marketing Preferences    – Consent for communications and event invitations.
 
-  Tagged with @wp for test grouping and CI filtering.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Validation and Quality Assurance Criteria
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Each application must meet the following standards:
+1. Data Completeness      – All required fields must be completed and saved securely.
+2. User-Friendly Design   – Clear navigation, page titles, and forms guide the applicant.
+3. System Sync            – Application data must sync correctly with Microsoft Dynamics CRM.
+4. Application Tracking   – A unique reference number is issued, with status updated in CRM.
+5. Audit Readiness        – Data is validated and traceable for compliance and reporting.
+
   # Start scenario
-
   Scenario Outline: "<TestcaseNo>" - Validate WP Score for "<applicationType>" with "<expectedScore>"
   # Access portal
     Given The "<applicationType>" applicant accesses the "<applicationType>" application portal
@@ -93,32 +113,31 @@ Feature: Applicant - Submission of Outreach Application with existing login deta
       | RefugeeOrAsylumSeeker | <RefugeeOrAsylumSeeker> |
       | MilitaryFamily        | <MilitaryFamily>        |
       | Veteran               | <Veteran>               |
-    # Personal Statement
+  # Personal Statement
     Then the page title should be "<PersonalStatementPageTitle>"
     And the form title should be "<PersonalStatementFormTitle>"
     And the applicant provides a personal statement
-    # Support Requirements
+  # Support Requirements
     Then the page title should be "<SupportRequirementsPageTitle>"
     And the form title should be "<SupportRequirementsFormTitle>"
     And the applicant provides Support Requirement details
       | SpecialEducationNeeds | <SpecialEducationNeeds> |
-    # Fill Marketing Preferences section
+  # Fill Marketing Preferences section
     Then the page title should be "<MarketingPageTitle>"
     And the form title should be "<MarketingFormTitle>"
     And the applicant provides marketing preference "<AttendOutreachbefore>"
       | AttendOutreachbefore | <AttendOutreachbefore> |
       | NewsLetterSignUp     | <NewsLetterSignUp>     |
-    # Review & Submit section: accept terms and submit application
+  # Review & Submit section: accept terms and submit application
     Then the page title should be "<ReviewPageTitle>"
     And the form title should be "<ReviewFormTitle>"
     And submits the application by accepting or rejecting
       | TermsAccepted | <TermsAccepted> |
-    # Validate successful submission confirmation and check WP Score
+  # Validate successful submission confirmation
     Then the system should confirm successful submission
     Then extract the ApplicationNumber from Portal
     Then the application with ApplicationNumber should exist in Dynamics with status
       | ApplicationStatus | <ApplicationStatus> |
-    # And the calculated WP Score should be "<ExpectedWPScore>"
 
     Examples:
       | TestcaseNo   | applicationType | applicantType | expectedScore | email                          | password   | MyImperialTitle         | WelcomeTitle                 | MyOutreachTitle         | PersonalDetailsPageTitle | PersonalDetailsFormTitle | Title | FirstName          | LastName           | DateOfBirth | AddressPageTitle | AddressFormTitle | AddressLine1    | AddressLine2 | AddressLine3 | City   | Country        | Postcode | EducationPageTitle | EducationFormTitle | Qualification | TeacherPageTitle | TeacherFormTitle | TeacherTitle | TeacherFirstName | TeacherLastName | TeacherEmail                   | GuardianPageTitle | GuardianFormTitle | GuardianTitle | GuardianFirstName | GuardianLastName | GuardianEmail                  | FreeSchoolMeals | HouseHoldIncome | PupilPremium | OutreachInCare | CareFromAge | CareToAge | DurationInCare | YoungCarer | MoreDetails           | FirstGeneration | FirstGenRelationship | FirstGenOccupation | FirstGenGuardian | FirstGenUniversity  | FirstGenLevel | FirstGenSubject | Estranged | GTRSB | RefugeeOrAsylumSeeker | MilitaryFamily | Veteran | PersonalStatement                         | PersonalStatementPageTitle | PersonalStatementFormTitle | SupportRequirementsPageTitle | SupportRequirementsFormTitle | SpecialEducationNeeds | MarketingPageTitle | MarketingFormTitle | Marketing | AttendOutreachbefore | NewsLetterSignUp | ReviewPageTitle | ReviewFormTitle     | TermsAccepted | ApplicationStatus | ExpectedWPScore |

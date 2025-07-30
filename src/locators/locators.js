@@ -190,4 +190,13 @@ module.exports = {
     mop_myOutreachLink: 'a[title="My Outreach Application"]',
     mop_applicationNumber: '.card-imperial div:has-text("Application Number:")',
   },
+
+  dynamicsPage: {
+    dp_applicationsOldTab: { role: 'treeitem', name: 'Applications (old)' },
+    dp_searchBox: { role: 'searchbox', name: 'Application Filter by keyword' },
+    dp_colIndex: {
+      checkbox: 'div[role="gridcell"][aria-colindex="1"]',
+      status: 'div[role="gridcell"][aria-colindex="7"]',
+    },
+  },
 }
