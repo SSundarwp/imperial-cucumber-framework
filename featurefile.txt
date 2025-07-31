@@ -1,0 +1,68 @@
+@signup
+Feature: Outreach Registration and Account Setup for all 3 Applicant Types
+
+# ... existing feature description and scenario outline ...
+
+Scenario Outline: "<OutreachApplicantType>" - Registration attempt with invalid email format
+  Given selects the "<applicationType>" option
+  When the user enters an invalid email address "<InvalidEmail>"
+  Then the system should show an error message "Please enter a valid email address"
+  And the user should NOT be able to request an email verification code
+  And the password fields should remain disabled
+
+  Examples:
+    | applicationType | OutreachApplicantType | InvalidEmail        |
+    | Outreach        | Applicant            | "useratexample.com" |
+    | Outreach        | Parent/Guardian      | "user@.com"         |
+    | Outreach        | Teacher              | "user@example"      |
+
+---
+
+Scenario Outline: "<OutreachApplicantType>" - Registration attempt with already registered email
+  Given selects the "<applicationType>" option
+  When the user enters a registered email address "<RegisteredEmail>"
+  And the user requests an email verification code
+  Then the system should show an error message "This email address is already registered"
+  And the password fields should remain disabled
+
+  Examples:
+    | applicationType | OutreachApplicantType | RegisteredEmail         |
+    | Outreach        | Applicant            | "existinguser@example.com" |
+    | Outreach        | Parent/Guardian      | "registeredparent@example.com" |
+    | Outreach        | Teacher              | "teacher@example.com"        |
+
+---
+
+Scenario Outline: "<OutreachApplicantType>" - Verification code expired flow
+  Given selects the "<applicationType>" option
+  When the user enters a valid email address "<ValidEmail>"
+  And the user requests an email verification code
+  And the verification code expires
+  When the user enters the expired verification code "<ExpiredCode>"
+  Then the system should reject the code with the message "Verification code expired, please request a new one"
+  And the password fields should remain disabled
+
+  Examples:
+    | applicationType | OutreachApplicantType | ValidEmail             | ExpiredCode |
+    | Outreach        | Applicant            | "applicant@example.com" | "123456"    |
+    | Outreach        | Parent/Guardian      | "guardian@example.com"  | "654321"    |
+    | Outreach        | Teacher              | "teacher@example.com"   | "111111"    |
+
+---
+
+Scenario Outline: "<OutreachApplicantType>" - Password strength enforcement after verification
+  Given selects the "<applicationType>" option
+  When the user enters a valid email address "<ValidEmail>"
+  And the user requests an email verification code
+  And the user enters the correct verification code "<CorrectCode>"
+  And user requests to validate the verification code
+  Then the password fields should be enabled after verification
+  When the user enters a weak password "<WeakPassword>"
+  Then the system should show a password strength error message "Password does not meet security requirements"
+  And the user cannot submit the registration form
+
+  Examples:
+    | applicationType | OutreachApplicantType | ValidEmail             | CorrectCode | WeakPassword    |
+    | Outreach        | Applicant            | "applicant@example.com" | "999999"    | "12345"         |
+    | Outreach        | Parent/Guardian      | "guardian@example.com"  | "888888"    | "password"      |
+    | Outreach        | Teacher              | "teacher@example.com"   | "777777"    | "abc123"        |

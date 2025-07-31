@@ -2,11 +2,14 @@
   "name": "imperial-cucumber-framework",
   "version": "1.0.0",
   "scripts": {
-    "clean": "rm -rf reports",
+    "clean": "rm -rf src/reports/**",
     "generate-steps": "npx cucumber-js --format progress",
     "test": "npm run clean && (npx cucumber-js || true) && node generate-report.js",
     "test:wp": "npm run clean && (npx cucumber-js --tags @wp || true) && node generate-report.js",
-    "test:signup": "npm run clean && (npx cucumber-js --tags @signup || true) && node generate-report.js"
+    "test:signup": "npm run clean && (npx cucumber-js --tags @signup || true) && node generate-report.js",
+    "test:invalid": "npm run clean && (npx cucumber-js --tags @invalid || true) && node generate-report.js",
+    "test:valid": "npm run clean && (npx cucumber-js --tags @valid || true) && node generate-report.js",
+    "regression": "npm run clean && (npx cucumber-js --tags \"@wp or @signup\" || true) && node generate-report.js"
   },
   "dependencies": {
     "@cucumber/cucumber": "^11.3.0",

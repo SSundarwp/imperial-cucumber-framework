@@ -75,6 +75,26 @@ When('successfully signs into the {string} application portal', async function (
 });
 
 Then('application portal should display the page title as {string}', async function (expectedTitle) {
-  const actualTitle = await this.page.title();
+  const maxRetries = 90;
+  const interval = 1000;
+  let actualTitle = '';
+
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      // Wait for load state to ensure navigation is complete
+      await this.page.waitForLoadState('load', { timeout: 5000 });
+
+      actualTitle = await this.page.title();
+
+      if (actualTitle.includes(expectedTitle)) {
+        break;
+      }
+    } catch (e) {
+      // Catch errors from navigation or context destruction and ignore them in retry
+    }
+
+    await new Promise(r => setTimeout(r, interval));
+  }
+
   expect(actualTitle).toContain(expectedTitle);
 });

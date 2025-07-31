@@ -1,4 +1,6 @@
 
+cucumber-js --tags "@signup and @invalid-email" --format json:reports/report.json
+
 ```
 imperial-cucumber-framework
 ├─ .env

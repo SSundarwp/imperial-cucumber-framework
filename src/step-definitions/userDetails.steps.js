@@ -1,6 +1,7 @@
 const { When, Then } = require('@cucumber/cucumber');
 const { expect } = require('@playwright/test');
 const GuerillaMailHelper = require('../utils/mailHelper');
+const { takeAndAttachScreenshot } = require('../utils/screenshotHelper');
 const { UserDetailsPage } = require('../pages/UserDetailsPage');
 
 
@@ -17,6 +18,21 @@ When('the user enters a valid email address', async function () {
   this.attach(`Email Address: ${email}`);
 
   console.log(`🆕 Using generated email: ${email}`);
+});
+
+When('the user enters an invalid email address', async function () {
+  // Use a clearly invalid email (no '@', invalid format, etc)
+  const invalidEmail = 'invalid-email-format`s';
+
+  userDetailsPage = new UserDetailsPage(this.page);
+  await userDetailsPage.fillEmail(invalidEmail);
+  await userDetailsPage.emailInput.press('Enter');
+  await userDetailsPage.emailInput.evaluate(input => input.blur());
+
+
+  this.attach(`Email Address: ${invalidEmail}`);
+
+  console.log(`❌ Using invalid email: ${invalidEmail}`);
 });
 
 When('the user requests an email verification code', async function () {
@@ -81,6 +97,15 @@ When('provides the following personal details', async function (dataTable) {
 
 Then('submits the registration form by clicking Create', async function () {
   await userDetailsPage.clickCreate();
-  await this.page.waitForTimeout(10000);
+})
+
+Then('the system should show an error message', async function () {
+  const errorSelector = 'div.error.itemLevel.show[role="alert"]';
+  await this.page.waitForSelector(errorSelector, { visible: true });
+  const errorMessage = await this.page.$eval(errorSelector, el => el.textContent.trim());
+  if (errorMessage !== 'Please enter a valid email address.') {
+    throw new Error(`Expected error message not found. Got: "${errorMessage}"`);
+  }
+  await takeAndAttachScreenshot(this.page, this.attach, 'EmailAddress Invalid');
 })
 

@@ -12,7 +12,8 @@ module.exports = {
     udp_givenNameInput: '#givenName',
     udp_outreachApplicationTypeSelect: '#extension_GSSOApplicantType',
     udp_surnameInput: '#surname',
-    udp_createButton: '#continue'
+    udp_createButton: '#continue',
+    udp_invalidemailAddressLabel:'#error itemLevel show'
   },
 
   signupOrSignInPage: {
